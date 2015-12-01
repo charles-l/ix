@@ -6,9 +6,10 @@
 #define FB_HIGH_BYTE_COMMAND 14
 #define FB_LOW_BYTE_COMMAND 15
 
-#define FB_NONE      0
-#define FB_GREEN     2
-#define FB_DARK_GREY 8
+#define FB_NONE      0x00
+#define FB_GREEN     0x02
+#define FB_DARK_GREY 0x08
+#define FB_WHITE     0xFF
 
 unsigned short cursor_pos;
 char *fb;
@@ -36,26 +37,26 @@ void fb_clear()
     }
 }
 
-void write(char s)
+void putchar(char c)
 {
-    /*for(int i = 0; s[i] != '\0'; i++) {
-        fb_write_cell(cursor_pos, s[i], FB_GREEN, FB_NONE);
-        cursor_pos += 2;
-    }*/
-    fb_write_cell(cursor_pos * 2, s, FB_GREEN, FB_NONE);
+    // MAKE SURE TO WRITE EVERY OTHER BYTE (odd bytes are for styling)!!
+    fb_write_cell(cursor_pos * 2, c, FB_WHITE, FB_NONE);
     fb_move_cursor(cursor_pos + 1);
+}
+
+void puts(char *s)
+{
+    for(int i = 0; s[i] != '\0'; i++) {
+        putchar(s[i]);
+    }
 }
 
 int kmain()
 {
     fb = (char *) 0x000B8000;
     fb_clear();
-    write('c');
-    write('h');
-    write('u');
-    write('c');
-    write('k');
-    fb_move_cursor(cursor_pos);
+    char string[] = "a test";
+    puts(string);
     while(1) {
         // kernel loop!!!
     }
