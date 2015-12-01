@@ -10,11 +10,12 @@
 #define FB_GREEN     2
 #define FB_DARK_GREY 8
 
-unsigned int cursor_pos;
+unsigned short cursor_pos;
 char *fb;
 
 void fb_move_cursor(unsigned short pos)
 {
+    cursor_pos = pos;
     outb(FB_COMMAND_PORT, FB_HIGH_BYTE_COMMAND);
     outb(FB_DATA_PORT,    ((pos >> 8) & 0x00FF));
     outb(FB_COMMAND_PORT, FB_LOW_BYTE_COMMAND);
@@ -35,13 +36,26 @@ void fb_clear()
     }
 }
 
+void write(char s)
+{
+    /*for(int i = 0; s[i] != '\0'; i++) {
+        fb_write_cell(cursor_pos, s[i], FB_GREEN, FB_NONE);
+        cursor_pos += 2;
+    }*/
+    fb_write_cell(cursor_pos * 2, s, FB_GREEN, FB_NONE);
+    fb_move_cursor(cursor_pos + 1);
+}
+
 int kmain()
 {
     fb = (char *) 0x000B8000;
     fb_clear();
-    fb_write_cell(0, 'c', FB_GREEN, FB_NONE);
-    fb_write_cell(2, 'o', FB_GREEN, FB_NONE);
-    fb_write_cell(4, 's', FB_GREEN, FB_NONE);
+    write('c');
+    write('h');
+    write('u');
+    write('c');
+    write('k');
+    fb_move_cursor(cursor_pos);
     while(1) {
         // kernel loop!!!
     }
