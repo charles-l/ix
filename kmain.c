@@ -49,8 +49,20 @@ void outportb (unsigned short _port, unsigned char _data)
 void kmain()
 {
     gdt_install();
+    idt_install();
+    isrs_install();
+    irq_install();
+    __asm__ __volatile__ ("sti");
+
+    // initialize components
+    timer_install();
+    keyboard_install();
+
+    // fb
     init_video();
+
     cls();
     puts("hello world!");
+
     for (;;);
 }
