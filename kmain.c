@@ -64,5 +64,9 @@ void kmain()
     cls();
     puts("hello world!");
 
+    page_init();
+
+    ///////
+
     for (;;);
 }

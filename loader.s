@@ -239,6 +239,30 @@ irq_common_stub:
     iret
 
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; paging
+
+global load_page_dir
+load_page_dir:
+    push ebp
+    mov ebp, esp
+    mov eax, [esp + 8]
+    mov cr3, eax
+    mov esp, ebp
+    pop ebp
+    ret
+
+global enable_paging
+enable_paging:
+    push ebp
+    mov ebp, esp
+    mov eax, cr0
+    or  eax, 0x80000000
+    mov cr0, eax
+    mov esp, ebp
+    pop ebp
+    ret
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 
 ; Here is the definition of our BSS section. Right now, we'll use
 ; it just to store the stack. Remember that a stack actually grows

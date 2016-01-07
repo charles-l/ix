@@ -4,6 +4,27 @@ unsigned short *textmemptr;
 int attrib = 0x0F;
 int csr_x = 0, csr_y = 0;
 
+////// DEBUG /////
+// rewrite this eventually - was taken from yahoo answers of all places
+#define CHAR_BIT 8
+char hexChar[] = {'0','1','2','3','4','5','6','7',
+    '8','9','A','B','C','D','E','F'};
+const unsigned int N = sizeof(unsigned) * 2;
+
+void phex (unsigned int v) {
+    unsigned i;
+    char hex[sizeof(unsigned)*2+1];
+
+    hex[N] = '\0';
+    for (i = 0; i < N ; i++) {
+        hex[i] = hexChar[(v >> ((N-i-1)*(CHAR_BIT/2))) & 0xF];
+    }
+    puts("0x");
+    puts(hex);
+    return 0;
+}
+//////////////
+
 /* Scrolls the screen */
 void scroll(void)
 {

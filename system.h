@@ -49,4 +49,7 @@ void timer_wait(int ticks);
 // kb.c
 void kb_install();
 
+// mem.c
+void page_init(void);
+
 #endif

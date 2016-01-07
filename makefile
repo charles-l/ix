@@ -1,4 +1,4 @@
-OBJECTS = scrn.o loader.o kmain.o gdt.o idt.o isrs.o irq.o timer.o kb.o
+OBJECTS = scrn.o loader.o kmain.o gdt.o idt.o isrs.o irq.o timer.o kb.o mem.o
 CC = gcc
 CFLAGS = -m32 -nostdlib -nostdinc -fno-builtin -fno-stack-protector \
 		 -nostartfiles -nodefaultlibs -Wall -Wextra -c
