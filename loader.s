@@ -43,13 +43,7 @@ gdt_flush:
     mov eax, cr0
     or al, 1
     mov cr0, eax
-    ; mov ax, 0x10
-    ; mov ds, ax
-    ; mov es, ax
-    ; mov fs, ax
-    ; mov gs, ax
-    ; mov ss, ax
-    jmp 0x08:flush2 ;how do we know 0x08 is the code offset????
+    jmp 08h:flush2
 
 global idt_load
 extern idtp

@@ -62,7 +62,7 @@ void kmain()
     init_video();
 
     cls();
-    puts("hello world!");
+    kputs("hello world!");
 
     page_init();
 

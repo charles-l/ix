@@ -108,9 +108,9 @@ void fault_handler(struct regs *r)
 {
     if (r->int_no < 32)
     {
-        puts("\n");
-        puts(exception_messages[r->int_no]);
-        puts(" exception!!! SYSTEM HALTED!\n");
+        kputs("\n");
+        kputs(exception_messages[r->int_no]);
+        kputs(" exception!!! SYSTEM HALTED!\n");
         for(;;);
     }
 }

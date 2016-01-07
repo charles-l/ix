@@ -11,7 +11,7 @@ char hexChar[] = {'0','1','2','3','4','5','6','7',
     '8','9','A','B','C','D','E','F'};
 const unsigned int N = sizeof(unsigned) * 2;
 
-void phex (unsigned int v) {
+void khexputs (unsigned int v) {
     unsigned i;
     char hex[sizeof(unsigned)*2+1];
 
@@ -19,8 +19,8 @@ void phex (unsigned int v) {
     for (i = 0; i < N ; i++) {
         hex[i] = hexChar[(v >> ((N-i-1)*(CHAR_BIT/2))) & 0xF];
     }
-    puts("0x");
-    puts(hex);
+    kputs("0x");
+    kputs(hex);
     return 0;
 }
 //////////////
@@ -151,7 +151,7 @@ void putch(unsigned char c)
 }
 
 /* Uses the above routine to output a string... */
-void puts(unsigned char *text)
+void kputs(unsigned char *text)
 {
     int i;
 
