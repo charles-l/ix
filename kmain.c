@@ -56,7 +56,7 @@ void kmain()
 
     // initialize components
     timer_install();
-    keyboard_install();
+    kb_install();
 
     // fb
     init_video();

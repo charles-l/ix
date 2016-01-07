@@ -38,7 +38,7 @@ unsigned char kbdus[128] =
     0,    /* All other keys are undefined */
 };
 
-void keyboard_handler(struct regs *r)
+void kb_handler(struct regs *r)
 {
     unsigned char scancode;
     scancode = inportb(0x60);
@@ -51,7 +51,7 @@ void keyboard_handler(struct regs *r)
     }
 }
 
-void keyboard_install()
+void kb_install()
 {
-    irq_install_handler(1, keyboard_handler);
+    irq_install_handler(1, kb_handler);
 }

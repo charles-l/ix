@@ -47,6 +47,6 @@ void timer_install();
 void timer_wait(int ticks);
 
 // kb.c
-void keyboard_install();
+void kb_install();
 
 #endif
