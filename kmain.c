@@ -60,11 +60,12 @@ void kmain()
 
     // fb
     init_video();
+    page_init();
 
     cls();
     kputs("hello world!");
+    putch(1/0);
 
-    page_init();
 
     ///////
 

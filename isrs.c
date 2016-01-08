@@ -104,10 +104,18 @@ unsigned char *exception_messages[] =
     "reserved"
 };
 
+#define PUTREG(q) kputs(" " #q " = "); khexputs(r->q); kputs("\n");
+
 void fault_handler(struct regs *r)
 {
     if (r->int_no < 32)
     {
+        putch('\n');
+        kputs("-- BEGIN KERNEL PANIC --\n");
+        PUTREG(gs); PUTREG(fs); PUTREG(es); PUTREG(ds);
+        PUTREG(edi); PUTREG(esi); PUTREG(ebp); PUTREG(esp);
+        PUTREG(ebx); PUTREG(edx); PUTREG(ecx); PUTREG(eax);
+        PUTREG(eip); PUTREG(cs); PUTREG(eflags); PUTREG(useresp); PUTREG(ss);
         kputs("\n");
         kputs(exception_messages[r->int_no]);
         kputs(" exception!!! SYSTEM HALTED!\n");
