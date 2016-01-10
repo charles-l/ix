@@ -20,3 +20,14 @@
 - Paging (almost)
 
 Also, there's an embedded Lisp for use later. Mostly because I can.
+
+# Getting Started
+
+- install
+    - `bochs`
+    - `gcc`
+    - `nasm`
+    - `genisoimage`
+- run `make`
+- run `make run`
+- type <kbd>c</kbd> to continue
