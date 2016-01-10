@@ -1,13 +1,14 @@
 #ifndef __SYSTEM_H
 #define __SYSTEM_H
+#include "types.h"
 
 /* This defines what the stack looks like after an ISR was running */
 struct regs
 {
-    unsigned int gs, fs, es, ds;      /* pushed the segs last */
-    unsigned int edi, esi, ebp, esp, ebx, edx, ecx, eax;  /* pushed by 'pusha' */
-    unsigned int int_no, err_code;    /* our 'push byte #' and ecodes do this */
-    unsigned int eip, cs, eflags, useresp, ss;   /* pushed by the processor automatically */
+    uint32 gs, fs, es, ds;      /* pushed the segs last */
+    uint32 edi, esi, ebp, esp, ebx, edx, ecx, eax;  /* pushed by 'pusha' */
+    uint32 int_no, err_code;    /* our 'push byte #' and ecodes do this */
+    uint32 eip, cs, eflags, useresp, ss;   /* pushed by the processor automatically */
 };
 
 // kmain.c

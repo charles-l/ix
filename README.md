@@ -1,5 +1,5 @@
-# os
-Minimal OS. What's been implemented:
+# ix
+*TO BE* a minimal unix-like OS.
 
 # Goals
 - <s>Implement an entire working (x86) OS in less lines than systemd.</s> Wait. That's not a challenge at all.
@@ -17,5 +17,6 @@ Minimal OS. What's been implemented:
 - Interrupt Handling
     - Timer (PIC)
     - Keyboard
+- Paging (almost)
 
 Also, there's an embedded Lisp for use later. Mostly because I can.
