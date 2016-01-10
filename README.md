@@ -30,3 +30,23 @@ Also, there's an embedded Lisp for use later. Mostly because I can.
 - run `make`
 - run `make run`
 - type <kbd>c</kbd> to continue
+
+# Code Breakdown
+
+```
+.
+├── gdt.c       - GDT: tells where memroy segments are
+├── idt.c       - IDT: tells where ISRs are at
+├── irq.c       - IRQ: interrupt requests
+├── isrs.c      - ISR: catch interrupts
+├── kb.c        - Keyboard: handle keyboard interrupts
+├── kmain.c     - Main file
+├── loader.s    - Main ASM file
+├── mem.c       - Paging
+├── multiboot.h - GRUB multboot headers (will be used later for finding end of physical memory)
+├── scrn.c      - Screen functions: drawing, clearing, etc.
+├── sl3.c       - Lisp: will be embedded in something later on ;)
+├── system.h    - Main header file, maps out kernel functions
+├── timer.c     - PIC timer
+└── types.h     - type aliases, etc.
+```
