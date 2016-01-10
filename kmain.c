@@ -64,10 +64,6 @@ void kmain()
 
     cls();
     kputs("hello world!");
-    putch(1/0);
 
-
-    ///////
-
-    for (;;);
+    for(;;);
 }
