@@ -146,6 +146,7 @@ isr_common_stub:
     pusha
     push ds
     push es
+    push fs
     push gs
     mov ax, 0x10 ; load data segment descriptor
     mov ds, ax

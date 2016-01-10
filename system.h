@@ -52,5 +52,10 @@ void kb_install();
 
 // mem.c
 void page_init(void);
+uint32 kmalloc   (uint32 sz);
+uint32 kmalloc_a (uint32 sz);
+uint32 kmalloc_p (uint32 sz, uint32 *phys);
+uint32 kmalloc_ap(uint32 sz, uint32 *phys);
+void page_init();
 
 #endif
