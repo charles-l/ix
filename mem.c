@@ -1,5 +1,8 @@
 #include "system.h"
 
+// see this for more info:
+// http://www.jamesmolloy.co.uk/tutorial_html/6.-Paging.html
+
 extern uint32 end;
 uint32 placement_addr;
 #define INDEX_FROM_BIT(a)  (a/(8*4))

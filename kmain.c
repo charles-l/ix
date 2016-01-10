@@ -65,8 +65,5 @@ void kmain()
     cls();
     kputs("hello world!");
 
-    uint32 *ptr = (uint32 *) 0xA0000000;
-    uint32 do_pg_fault = *ptr;
-
     for(;;);
 }
