@@ -8,7 +8,6 @@
 - Simpler is *always* better.
 
 # Ideas
-- A super compatability layer. Basically wine baked into the kernel.
 - Microkernel, cause it seems better?
 - Separation of cruft ('cause the world is full of it). If compatablity garbage needs to run, keep it away from everything else.
 
@@ -17,7 +16,7 @@
 - Interrupt Handling
     - Timer (PIC)
     - Keyboard
-- Paging (almost)
+- Paging
 
 Also, there's an embedded Lisp for use later. Mostly because I can.
 
